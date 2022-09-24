@@ -10,11 +10,26 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('love_sandwiches') #using open method passing spread sheet method
+SHEET = GSPREAD_CLIENT.open('love_sandwiches')  # using open method passing spread sheet method
 
-sales = SHEET.worksheet('sales') #sales value corresponds to the value in prea sheet
+sales = SHEET.worksheet('sales')    # sales value corresponds to the value in spread sheet
+                                     #orksheet method
 
-data = sales.get_all_values()#pull all the values from orksheet
+data = sales.get_all_values()   # pull all the values from orksheet
 
 print(data)
 
+
+def get_sales_data():
+    """
+    Get sales figures input from the user.
+    """
+    print("Please enter sales data from the last market.")
+    print("Data should be six numbers, separated by commas.")
+    print("Example: 10,20,30,40,50,60\n")
+
+    data_str = input("Enter your data here: ")
+    print(f"The data provided is {data_str}")
+
+
+get_sales_data()
