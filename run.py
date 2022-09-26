@@ -10,14 +10,7 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('love_sandwiches')  # using open method passing spread sheet method
-
-#sales = SHEET.worksheet('sales')    # sales value corresponds to the value in spread sheet
-                                     #orksheet method
-
-#data = sales.get_all_values()   # pull all the values from orksheet
-
-
+SHEET = GSPREAD_CLIENT.open('love_sandwiches')
 
 
 def get_sales_data():
@@ -140,5 +133,3 @@ def main():
 
 print("Welcome to Love Sandwiches Data Automation")
 main()
-
-
